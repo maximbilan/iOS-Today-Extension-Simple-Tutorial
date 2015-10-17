@@ -16,6 +16,7 @@
 		94AD20051BD01E040089ADF1 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AD20041BD01E040089ADF1 /* TodayViewController.swift */; };
 		94AD20081BD01E040089ADF1 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94AD20061BD01E040089ADF1 /* MainInterface.storyboard */; };
 		94AD200C1BD01E040089ADF1 /* Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 94AD1FFF1BD01E040089ADF1 /* Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		94AD20121BD24A390089ADF1 /* Data.plist in Resources */ = {isa = PBXBuildFile; fileRef = 94AD20111BD24A390089ADF1 /* Data.plist */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		94AD20041BD01E040089ADF1 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
 		94AD20071BD01E040089ADF1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		94AD20091BD01E040089ADF1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		94AD20111BD24A390089ADF1 /* Data.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Data.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +124,7 @@
 				94AD20041BD01E040089ADF1 /* TodayViewController.swift */,
 				94AD20061BD01E040089ADF1 /* MainInterface.storyboard */,
 				94AD20091BD01E040089ADF1 /* Info.plist */,
+				94AD20111BD24A390089ADF1 /* Data.plist */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -216,6 +219,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94AD20121BD24A390089ADF1 /* Data.plist in Resources */,
 				94AD20081BD01E040089ADF1 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -435,6 +439,7 @@
 				94AD200E1BD01E040089ADF1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
