@@ -62,20 +62,23 @@ self.preferredContentSize.height = 200
 Implementation of loading data, for example from <i>plist</i>:
 
 <pre>
-func loadData() {   dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
-  self.data.removeAll()
-  if let path = NSBundle.mainBundle().pathForResource(“Data”, ofType: “plist”) {
-     if let array = NSArray(contentsOfFile: path) {
-       for item in array {
-         self.data.append(item as! NSDictionary)
-       }
-     }
-  }
+func loadData() {
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+        
+        self.data.removeAll()
+        
+        if let path = NSBundle.mainBundle().pathForResource(“Data”, ofType: “plist”) {
+            if let array = NSArray(contentsOfFile: path) {
+                for item in array {
+                    self.data.append(item as! NSDictionary)
+                }
+            }
+        }
 
-  dispatch_async(dispatch_get_main_queue()) {
-    self.tableView.reloadData()
-  }
-}
+        dispatch_async(dispatch_get_main_queue()) {
+            self.tableView.reloadData()
+        }
+    }
 }
 </pre>
 
@@ -83,17 +86,17 @@ And of course simple implementation of <i>TableView</i>:
 
 <pre>
 func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-  return data.count
+    return data.count
 }
 
 func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-  let cell = tableView.dequeueReusableCellWithIdentifier("tableViewCellIdentifier", forIndexPath: indexPath)
+    let cell = tableView.dequeueReusableCellWithIdentifier("tableViewCellIdentifier", forIndexPath: indexPath)
 
-  let item = data[indexPath.row]
-  cell.textLabel?.text = item["title"] as? String
-  cell.textLabel?.textColor = UIColor.whiteColor()
+    let item = data[indexPath.row]
+    cell.textLabel?.text = item["title"] as? String
+    cell.textLabel?.textColor = UIColor.whiteColor()
 
-  return cell
+    return cell
 }
 </pre>
 
