@@ -11,7 +11,7 @@ import NotificationCenter
 
 class TodayViewController: UIViewController, NCWidgetProviding {
 	
-	private var data: Array<NSDictionary> = Array()
+	fileprivate var data: Array<NSDictionary> = Array()
 	
 	@IBOutlet weak var tableView: UITableView!
 	
@@ -25,7 +25,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
 	
 	// MARK: - NCWidgetProviding
 	
-    func widgetPerformUpdateWithCompletionHandler(completionHandler: ((NCUpdateResult) -> Void)) {
+    func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
         // Perform any setup necessary in order to update the view.
 
         // If an error is encountered, use NCUpdateResult.Failed
@@ -34,22 +34,22 @@ class TodayViewController: UIViewController, NCWidgetProviding {
 
 		loadData()
 		
-        completionHandler(NCUpdateResult.NewData)
+        completionHandler(NCUpdateResult.newData)
     }
 	
-	func widgetMarginInsetsForProposedMarginInsets(defaultMarginInsets: UIEdgeInsets) -> (UIEdgeInsets) {
-		return UIEdgeInsetsZero
+	func widgetMarginInsets(forProposedMarginInsets defaultMarginInsets: UIEdgeInsets) -> (UIEdgeInsets) {
+		return UIEdgeInsets.zero
 	}
 	
 	// MARK: - Loading of data
 	
 	func loadData() {
 		
-		dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+		DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.default).async {
 			
 			self.data.removeAll()
 			
-			if let path = NSBundle.mainBundle().pathForResource("Data", ofType: "plist") {
+			if let path = Bundle.main.path(forResource: "Data", ofType: "plist") {
 				if let array = NSArray(contentsOfFile: path) {
 					for item in array {
 						self.data.append(item as! NSDictionary)
@@ -57,7 +57,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
 				}
 			}
 			
-			dispatch_async(dispatch_get_main_queue()) {
+			DispatchQueue.main.async {
 				self.tableView.reloadData()
 			}
 		}
@@ -65,16 +65,16 @@ class TodayViewController: UIViewController, NCWidgetProviding {
 	
 	// MARK: - TableView Data Source
 	
-	func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return data.count
 	}
 	
-	func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-		let cell = tableView.dequeueReusableCellWithIdentifier("tableViewCellIdentifier", forIndexPath: indexPath) 
+	func tableView(_ tableView: UITableView, cellForRowAtIndexPath indexPath: IndexPath) -> UITableViewCell {
+		let cell = tableView.dequeueReusableCell(withIdentifier: "tableViewCellIdentifier", for: indexPath) 
 		
 		let item = data[indexPath.row]
 		cell.textLabel?.text = item["title"] as? String
-		cell.textLabel?.textColor = UIColor.whiteColor()
+		cell.textLabel?.textColor = UIColor.white
 		
 		return cell
 	}

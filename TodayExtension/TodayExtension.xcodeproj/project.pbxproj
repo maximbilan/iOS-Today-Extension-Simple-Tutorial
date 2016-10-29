@@ -12,11 +12,11 @@
 		6D5115501BCFFF8A004BE86D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6D51154E1BCFFF8A004BE86D /* Main.storyboard */; };
 		6D5115521BCFFF8A004BE86D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6D5115511BCFFF8A004BE86D /* Assets.xcassets */; };
 		6D5115551BCFFF8A004BE86D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6D5115531BCFFF8A004BE86D /* LaunchScreen.storyboard */; };
-		94AD20021BD01E040089ADF1 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94AD20011BD01E040089ADF1 /* NotificationCenter.framework */; settings = {ASSET_TAGS = (); }; };
+		94AD20021BD01E040089ADF1 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94AD20011BD01E040089ADF1 /* NotificationCenter.framework */; };
 		94AD20051BD01E040089ADF1 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AD20041BD01E040089ADF1 /* TodayViewController.swift */; };
 		94AD20081BD01E040089ADF1 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94AD20061BD01E040089ADF1 /* MainInterface.storyboard */; };
 		94AD200C1BD01E040089ADF1 /* Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 94AD1FFF1BD01E040089ADF1 /* Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		94AD20121BD24A390089ADF1 /* Data.plist in Resources */ = {isa = PBXBuildFile; fileRef = 94AD20111BD24A390089ADF1 /* Data.plist */; settings = {ASSET_TAGS = (); }; };
+		94AD20121BD24A390089ADF1 /* Data.plist in Resources */ = {isa = PBXBuildFile; fileRef = 94AD20111BD24A390089ADF1 /* Data.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -179,9 +179,11 @@
 				TargetAttributes = {
 					6D5115461BCFFF8A004BE86D = {
 						CreatedOnToolsVersion = 7.0.1;
+						LastSwiftMigration = 0810;
 					};
 					94AD1FFE1BD01E040089ADF1 = {
 						CreatedOnToolsVersion = 7.0.1;
+						LastSwiftMigration = 0810;
 					};
 				};
 			};
@@ -374,6 +376,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = maximbilan.TodayExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -386,6 +389,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = maximbilan.TodayExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -397,6 +401,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = maximbilan.TodayExtension.Extension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -408,6 +413,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = maximbilan.TodayExtension.Extension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
