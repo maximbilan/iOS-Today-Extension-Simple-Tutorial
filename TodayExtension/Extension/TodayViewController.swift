@@ -44,9 +44,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
 	// MARK: - Loading of data
 	
 	func loadData() {
-		
-		DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.default).async {
-			
+		DispatchQueue.global(qos: DispatchQoS.QoSClass.default).async {
 			self.data.removeAll()
 			
 			if let path = Bundle.main.path(forResource: "Data", ofType: "plist") {
