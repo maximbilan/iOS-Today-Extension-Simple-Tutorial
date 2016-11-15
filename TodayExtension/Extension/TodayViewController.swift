@@ -18,9 +18,12 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     override func viewDidLoad() {
         super.viewDidLoad()
 		
-		loadData()
-		
+		if #available(iOSApplicationExtension 10.0, *) {
+			extensionContext?.widgetLargestAvailableDisplayMode = .expanded
+		}
 		self.preferredContentSize.height = 200
+		
+		loadData()
     }
 	
 	// MARK: - NCWidgetProviding
@@ -39,6 +42,16 @@ class TodayViewController: UIViewController, NCWidgetProviding {
 	
 	func widgetMarginInsets(forProposedMarginInsets defaultMarginInsets: UIEdgeInsets) -> (UIEdgeInsets) {
 		return UIEdgeInsets.zero
+	}
+	
+	@available(iOSApplicationExtension 10.0, *)
+	func widgetActiveDisplayModeDidChange(_ activeDisplayMode: NCWidgetDisplayMode, withMaximumSize maxSize: CGSize) {
+		if activeDisplayMode == .expanded {
+			preferredContentSize = CGSize(width: maxSize.width, height: 300)
+		}
+		else if activeDisplayMode == .compact {
+			preferredContentSize = maxSize
+		}
 	}
 	
 	// MARK: - Loading of data
