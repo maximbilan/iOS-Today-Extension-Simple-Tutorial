@@ -82,7 +82,7 @@ func loadData() {
 }
 </pre>
 
-And of course simple implementation of <i>TableView</i>:
+And of course simple implementation of <i>UITableView</i>:
 
 <pre>
 func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
