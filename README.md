@@ -104,4 +104,4 @@ And finally we get the result:
 
 ![alt tag](https://raw.github.com/maximbilan/iOS-Today-Extension-Simple-Tutorial/master/screenshots/7.png)
 
-Full code you can found in this repository. Happy coding!
+Full code you can find in this repository. Happy coding!
