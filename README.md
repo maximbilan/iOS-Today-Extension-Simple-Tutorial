@@ -18,9 +18,9 @@ And create scheme:
 
 ![alt tag](https://raw.github.com/maximbilan/iOS-Today-Extension-Simple-Tutorial/master/screenshots/4.png)
 
-Now you have <i>MainInterface.storyboard</i> and <i>TodayViewController.swift</i>. The main controller implements <i>NCWidgetProviding</i> protocol. In this protocol we have two methods:
+Now you have _MainInterface.storyboard_ and _TodayViewController.swift_. The main controller implements _NCWidgetProviding_ protocol. In this protocol we have two methods:
 
-<pre>
+```swift
 // If implemented, the system will call at opportune times for the widget to update its state, both when the Notification Center is visible as well as in the background.
 // An implementation is required to enable background updates.
 // It’s expected that the widget will perform the work to update asynchronously and off the main thread as much as possible.
@@ -33,9 +33,9 @@ optional public func widgetPerformUpdateWithCompletionHandler(completionHandler:
 // Widgets wishing to customize the default margin insets can return their preferred values.
 // Widgets that choose not to implement this method will receive the default margin insets.
 optional public func widgetMarginInsetsForProposedMarginInsets(defaultMarginInsets: UIEdgeInsets) -> UIEdgeInsets
-</pre>
+```
 
-In the first method you need to fetch a new data if you have, and you need to call completion handler with three possible values: <i>NewData</i>, <i>NoData</i>, <i>Failed</i>. And widget will be know, will update UI or use old snapshot.
+In the first method you need to fetch a new data if you have, and you need to call completion handler with three possible values: _NewData_, _NoData_, _Failed_. And widget will be know, will update UI or use old snapshot.
 
 In the second method Apple gives a chance to change margins. By default Today Widget has left margin, you can see in default Apple applications, such as Calendar, Stocks.
 
@@ -43,25 +43,25 @@ In the second method Apple gives a chance to change margins. By default Today Wi
 
 For example:
 
-<pre>
+```swift
 func widgetMarginInsetsForProposedMarginInsets(defaultMarginInsets: UIEdgeInsets) -> (UIEdgeInsets) {
     return UIEdgeInsetsZero
 }
-</pre>
+```
 
-Let’s create simple extension. Please, add the <i>TableView</i> to interface and set up outlet.
+Let’s create simple extension. Please, add the _TableView_ to interface and set up outlet.
 
 ![alt tag](https://raw.github.com/maximbilan/iOS-Today-Extension-Simple-Tutorial/master/screenshots/6.png)
 
-For static height of the view you need to set up <i>preferredContentSize</i>:
+For static height of the view you need to set up _preferredContentSize_:
 
-<pre>
+```swift
 self.preferredContentSize.height = 200
-</pre>
+```
 
-Implementation of loading data, for example from <i>plist</i>:
+Implementation of loading data, for example from _plist_:
 
-<pre>
+```swift
 func loadData() {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
         
@@ -80,11 +80,11 @@ func loadData() {
         }
     }
 }
-</pre>
+```
 
-And of course simple implementation of <i>UITableView</i>:
+And of course simple implementation of _UITableView_:
 
-<pre>
+```swift
 func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return data.count
 }
@@ -98,7 +98,7 @@ func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexP
 
     return cell
 }
-</pre>
+```
 
 And finally we get the result:
 
