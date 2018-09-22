@@ -14,7 +14,7 @@ Choose options:
 
 ![alt tag](https://raw.github.com/maximbilan/iOS-Today-Extension-Simple-Tutorial/master/screenshots/3.png)
 
-And create scheme:
+And create a scheme:
 
 ![alt tag](https://raw.github.com/maximbilan/iOS-Today-Extension-Simple-Tutorial/master/screenshots/4.png)
 
@@ -35,7 +35,7 @@ optional public func widgetPerformUpdateWithCompletionHandler(completionHandler:
 optional public func widgetMarginInsetsForProposedMarginInsets(defaultMarginInsets: UIEdgeInsets) -> UIEdgeInsets
 ```
 
-In the first method you need to fetch a new data if you have, and you need to call completion handler with three possible values: _NewData_, _NoData_, _Failed_. And widget will be know, will update UI or use old snapshot.
+In the first method you need to fetch a new data if you have, and you need to call a completion handler with three possible values: _NewData_, _NoData_, _Failed_. And widget will be know, will update UI or use old snapshot.
 
 In the second method Apple gives a chance to change margins. By default Today Widget has left margin, you can see in default Apple applications, such as Calendar, Stocks.
 
@@ -49,11 +49,11 @@ func widgetMarginInsetsForProposedMarginInsets(defaultMarginInsets: UIEdgeInsets
 }
 ```
 
-Let’s create simple extension. Please, add the _TableView_ to interface and set up outlet.
+Let’s create a simple extension. Please, add the _TableView_ to interface and set up an outlet.
 
 ![alt tag](https://raw.github.com/maximbilan/iOS-Today-Extension-Simple-Tutorial/master/screenshots/6.png)
 
-For static height of the view you need to set up _preferredContentSize_:
+For the static height of the view you need to set up _preferredContentSize_:
 
 ```swift
 self.preferredContentSize.height = 200
@@ -82,7 +82,7 @@ func loadData() {
 }
 ```
 
-And of course simple implementation of _UITableView_:
+And of course the simple implementation of _UITableView_:
 
 ```swift
 func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
